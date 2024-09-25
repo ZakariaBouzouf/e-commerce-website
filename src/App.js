@@ -1,12 +1,29 @@
 import "./App.css";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
 import Login from "./pages/Login";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import Root from "./pages/Root";
+import { useAuth } from "./security/AuthContext";
+import Profil from "./pages/Profil";
 
+function AuthenticatedRoute({ children }) {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+
+  // if (isAuthenticated) {
+  //   return children;
+  // }
+  // return <Navigate to="/login" replace />;
+}
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profil",
+        element: (
+          <AuthenticatedRoute>
+            <Profil />
+          </AuthenticatedRoute>
+        ),
       },
     ],
     errorElement: <ErrorPage />,
