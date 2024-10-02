@@ -17,13 +17,9 @@ export default function Products() {
 
   useEffect(() => retrieveProducts, [])
   return (
-    <div className="album py-5 bg-body-tertiary">
-      <div className="container">
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div className="grid grid-cols-3 gap-5">
         {products.map(product => <ProductList product={product} key={product.id} />)}
       </div>
-      </div>
-    </div>
   )
 
 }

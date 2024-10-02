@@ -1,24 +1,18 @@
 export default function ProductList({ product }) {
   return (
-    <div className="col">
-      <div className="card shadow-sm">
-        <img src={`/${product.image}`} width="100%" height="225" />
-        <title>{product.name}</title>
-        {/* <rect width="100%" height="100%" fill="#55595c"></rect> */}
-        {/* <text x="50%" y="50%" fill="#eceeef" dy=".3em">{product.description}</text> */}
-        <div class="card-body">
-          <p>{product.name}</p>
-          <p class="card-text">{product.description}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Add to Chart</button>
-            </div>
-            <small class="text-body-secondary">10 <span>pieces</span></small>
-          </div>
+    <div className="flex group bg-stone-300 flex-col rounded-xl  items-center hover:bg-black hover:bg-opacity-70">
+        <img src={`/${product.image}`} className="rounded-t-xl w-full h-32 flex-1 group-hover:brightness-50" />
+        <h2 className="group-hover:hidden text-2xl">{product.name}</h2>
+        <p class="group-hover:hidden text-lg">{product.description}</p>
+        {/* <div className="flex justify-center align-items-center"> */}
+        <div className="group-hover:flex justify-center gap-2 hidden duration-300 my-3 ">
+          <button className="rounded border-2 border-stone-400 p-1 text-stone-400 hover:bg-stone-300 hover:border-stone-900 hover:text-stone-900">View</button>
+          <button className="rounded border-2 border-stone-400 p-1 text-stone-400 hover:bg-stone-300 hover:border-stone-900 hover:text-stone-900">Add to Chart</button>
         </div>
+        {/* <small class="text-body-secondary">10 <span>pieces</span></small> */}
       </div>
-    </div>
+    // </div>
+    // </div>
   )
 
 }
