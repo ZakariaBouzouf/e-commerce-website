@@ -4,9 +4,11 @@ import { AuthProvider } from "../security/AuthContext";
 
 export default function Root() {
   return (
-    <AuthProvider>
-      <Header />
-      <Outlet />
-    </AuthProvider>
+    <div className="bg-stone-200">
+      <AuthProvider >
+        <Header />
+        <Outlet />
+      </AuthProvider>
+    </div>
   )
 }

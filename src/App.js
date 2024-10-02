@@ -1,4 +1,3 @@
-import "./App.css";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import {
@@ -18,12 +17,8 @@ function AuthenticatedRoute({ children }) {
     return <Navigate to="/login" replace />;
   }
   return children;
-
-  // if (isAuthenticated) {
-  //   return children;
-  // }
-  // return <Navigate to="/login" replace />;
 }
+
 const router = createBrowserRouter([
   {
     path: "/",
