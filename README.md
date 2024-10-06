@@ -4,7 +4,7 @@ EasyShop – A React and Spring Boot Web Application
 
 ## Project Description
 
-This is a full-stack web application built with a React.js frontend and a Spring Boot backend. The website allows users to register and log in, browse products, and make purchases(of course this is just a fake one). It features secure user authentication, a dynamic user interface, and a responsive design. The backend handles API requests, database interactions with MySQL, and user management, while the frontend provides a smooth and interactive user experience.
+This is a full-stack web application built with a React.js frontend and a Spring Boot backend . The website allows users to register and log in, browse products, and make purchases(of course this is just a fake one). It features secure user authentication, a dynamic user interface, and a responsive design. The backend handles API requests, database interactions with MySQL, and user management, while the frontend provides a smooth and interactive user experience.
 
 ## Getting Started
 
@@ -37,3 +37,4 @@ npm start
 - [] Creating an Admin user with differents authorities
 - [] Adding page for Check out
 - [] Improving the CSS
+- [] Changing to MySQL Database
