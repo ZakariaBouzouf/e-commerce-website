@@ -1,0 +1,3 @@
+[submodule "E-com-Backend"]
+	path = E-com-Backend
+	url = git@github.com:ZakariaBouzouf/E-com-Backend.git
