@@ -1,6 +1,6 @@
 # Project Title
 
-[EasyShop] – A React and Spring Boot Web Application
+EasyShop – A React and Spring Boot Web Application
 
 ## Project Description
 
