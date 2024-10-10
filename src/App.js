@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Root from "./pages/Root";
 import { useAuth } from "./security/AuthContext";
 import Profil from "./pages/Profil";
+import ProductPage from "./pages/ProductPage";
 
 function AuthenticatedRoute({ children }) {
   const { isAuthenticated } = useAuth();
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/products/:productId",
+        element: <ProductPage />,
       },
       {
         path: "/login",
