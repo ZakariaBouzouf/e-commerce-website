@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { retrievAllProducts } from "../api/ProductApiService"
-import ProductList from "../components/ProductList"
+import ProductCard from "../components/ProductCard"
 
 export default function Products() {
   const [products, setProducts] = useState([])
@@ -18,7 +18,7 @@ export default function Products() {
   useEffect(() => retrieveProducts, [])
   return (
       <div className="grid grid-cols-3 gap-5">
-        {products.map(product => <ProductList product={product} key={product.id} />)}
+        {products.map(product => <ProductCard product={product} key={product.id} />)}
       </div>
   )
 
