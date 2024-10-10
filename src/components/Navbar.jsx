@@ -1,10 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import ProfilDropDown from "./ProfilDropDown";
 import Icons from "./Icons";
+import { useCart } from "../context/CartContext";
 
 export default function Navbar({ isAuthenticated, logout }) {
+  const { numberItems } = useCart()
   // const [showDropdown,setShowDropdown] = useState(false)
   //
   // function dropdownToggle(){
