@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import { CartIcon, HeartIcon, LoginIcon } from "./Icons";
 import ProfilDropDown from "./ProfilDropDown";
+import Icons from "./Icons";
 
 export default function Navbar({ isAuthenticated, logout }) {
   // const [showDropdown,setShowDropdown] = useState(false)
@@ -18,10 +18,16 @@ export default function Navbar({ isAuthenticated, logout }) {
       </Link>
       <SearchBar />
       <div className="grid grid-cols-3 space-x-3 ">
-        <CartIcon />
-        <HeartIcon />
+        <Icons type="cart" >
+          <span>Cart (<span className="text-[17px]">{`${numberItems}`}</span>)</span>
+        </Icons>
+        <Icons type="heart" >
+          <span>Favorites</span>
+        </Icons>
         {isAuthenticated ? <ProfilDropDown /> :
-          <LoginIcon/>
+          <Icons type="login">
+            <span>Login</span>
+          </Icons>
         }
       </div>
     </nav>
