@@ -6,7 +6,7 @@ export default function Header() {
   const { isAuthenticated, logout } = useAuth()
 
   return (
-    <header className="border-b-4  border-stone-500">
+    <header className="border-b-2  border-gray-300">
       <Navbar isAuthenticated={isAuthenticated} logout={logout} />
     </header>
   )
