@@ -9,7 +9,7 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <div className="flex group bg-stone-300 flex-col rounded-xl items-center hover:bg-black hover:bg-opacity-70 hover:cursor-pointer" onClick={redirectToProductPage} >
+    <div className="flex group shadow-md bg-stone-300 flex-col rounded-xl items-center hover:bg-black hover:bg-opacity-70 hover:cursor-pointer" onClick={redirectToProductPage} >
       <img src={`/${product.image}`} className="rounded-t-xl w-full h-32 flex-1 group-hover:brightness-50" />
       <h2 className="group-hover:hidden text-2xl">{product.name}</h2>
       <p class="group-hover:hidden text-lg">{product.description}</p>

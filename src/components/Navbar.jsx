@@ -15,10 +15,10 @@ export default function Navbar({ isAuthenticated, logout }) {
   return (
     <nav className="w-full bg-stone-50 flex items-center justify-between border-b-2  border-gray-300 ">
       <Link to="/">
-        <h1 className="text-4xl m-3">Logo</h1>
+        <h1 className="text-4xl m-1 p-2 hover:bg-stone-200 hover:rounded-md">Logo</h1>
       </Link>
       <SearchBar />
-      <div className="grid grid-cols-3 space-x-3 ">
+      <div className="grid grid-cols-3 space-x-1 mr-2 ">
         <Icons type="cart" >
           <span>Cart (<span className="text-[17px]">{`${numberItems}`}</span>)</span>
         </Icons>

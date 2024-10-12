@@ -32,7 +32,7 @@ export default function Icons({ type, form, children }) {
 
   if (type === "login") return (
     <Link to="/login">
-      <div className='flex w-full flex-col items-center text-sm font-bold '>
+      <div className='flex w-full hover:bg-stone-200 hover:rounded-md transition-all duration-300 flex-col items-center p-1 text-sm font-bold '>
         {icon}
         {children}
       </div>
@@ -40,7 +40,7 @@ export default function Icons({ type, form, children }) {
   )
 
   return (
-    <div className='flex w-full flex-col items-center text-sm font-bold '>
+    <div className='flex w-full hover:bg-stone-200 hover:rounded-md p-1 flex-col items-center text-sm font-bold transition-all duration-300'>
       {icon}
       {children}
     </div>
