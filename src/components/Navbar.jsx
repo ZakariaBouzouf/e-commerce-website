@@ -13,7 +13,7 @@ export default function Navbar({ isAuthenticated, logout }) {
   // }
   //
   return (
-    <nav className="bg-stone-50 flex items-center justify-between ">
+    <nav className="w-full bg-stone-50 flex items-center justify-between border-b-2  border-gray-300 ">
       <Link to="/">
         <h1 className="text-4xl m-3">Logo</h1>
       </Link>
