@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Icons({ type, form, children }) {
+export default function Icons({onClick, type, form, children }) {
   console.log("Type", type)
   let icon
   let style
@@ -40,7 +40,7 @@ export default function Icons({ type, form, children }) {
   )
 
   return (
-    <div className='flex w-full hover:bg-stone-200 hover:rounded-md p-1 flex-col items-center text-sm font-bold transition-all duration-300'>
+    <div onClick={onClick} className='flex hover:cursor-pointer w-full hover:bg-stone-200 hover:rounded-md p-1 flex-col items-center text-sm font-bold transition-all duration-300'>
       {icon}
       {children}
     </div>

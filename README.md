@@ -32,9 +32,10 @@ npm start
 
 ### Future Taks
 
-- [] Adding the page for a single Product
+- [x] Adding the page for a single Product
 - [] Adding a persistent session when login
 - [] Creating an Admin user with differents authorities
 - [] Adding page for Check out
 - [] Improving the CSS
 - [] Changing to MySQL Database
+- [] Pagination

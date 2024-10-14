@@ -3,15 +3,17 @@ import SearchBar from "./SearchBar";
 import ProfilDropDown from "./ProfilDropDown";
 import Icons from "./Icons";
 import { useCart } from "../context/CartContext";
+import { useContext, useState } from "react";
+import { SideDrawerShow } from "../pages/Root";
 
-export default function Navbar({ isAuthenticated, logout }) {
+export default function Navbar({ isAuthenticated }) {
   const { numberItems } = useCart()
-  // const [showDropdown,setShowDropdown] = useState(false)
-  //
-  // function dropdownToggle(){
-  //   setShowDropdown(!showDropdown)
-  // }
-  //
+  const {show,setShow }= useContext(SideDrawerShow)
+
+  function dropdownToggle(){
+    setShow(!show)
+  }
+
   return (
     <nav className="w-full bg-stone-50 flex items-center justify-between border-b-2  border-gray-300 ">
       <Link to="/">
@@ -19,7 +21,7 @@ export default function Navbar({ isAuthenticated, logout }) {
       </Link>
       <SearchBar />
       <div className="grid grid-cols-3 space-x-1 mr-2 ">
-        <Icons type="cart" >
+        <Icons type="cart" onClick={dropdownToggle} >
           <span>Cart (<span className="text-[17px]">{`${numberItems}`}</span>)</span>
         </Icons>
         <Icons type="heart" >
