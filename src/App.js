@@ -50,7 +50,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div className="font-satoshi">
+      <RouterProvider router={router} />;
+    </div>
+  );
 }
 
 export default App;
