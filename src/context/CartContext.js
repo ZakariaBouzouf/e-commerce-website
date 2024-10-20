@@ -8,13 +8,11 @@ const initialState = {
 function cartReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_CART":
-      return { ...state, cartItems: [...state.cartItems, action.payload] };
-    case "REMOVE_TO_CART":
+      return { ...state, cartItems: action.payload };
+    case "REMOVE_FROM_CART":
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.id !== action.payload.id,
-        ),
+        cartItems: action.payload,
       };
   }
 }
@@ -49,12 +47,17 @@ export function CartProvider({ children }) {
     dispatch({ type: "ADD_TO_CART", payload: state.cartItems });
     console.log("cart", state.cartItems);
   }
+  function removeFromCart(product) {
+    let filtedCart = state.cartItems.filter((item) => item.id !== product.id);
+    dispatch({ type: "REMOVE_FROM_CART", payload: filtedCart });
+  }
 
   return (
     <CartContext.Provider
       value={{
         numberItems: state.cartItems.length,
         cartItems: state.cartItems,
+        removeFromCart,
         addToCart,
         dispatch,
       }}
