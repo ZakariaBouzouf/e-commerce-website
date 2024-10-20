@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Icons({onClick, type, form, children }) {
-  console.log("Type", type)
   let icon
-  let style
   switch (type) {
     case "cart":
       icon = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`size-6 ${form}`}>
