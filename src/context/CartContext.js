@@ -1,8 +1,9 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 const CartContext = createContext();
 
 const initialState = {
   cartItems: [],
+  numberItems: 0,
 };
 
 function cartReducer(state, action) {
@@ -10,10 +11,7 @@ function cartReducer(state, action) {
     case "ADD_TO_CART":
       return { ...state, cartItems: action.payload };
     case "REMOVE_FROM_CART":
-      return {
-        ...state,
-        cartItems: action.payload,
-      };
+      return { ...state, cartItems: action.payload };
   }
 }
 
@@ -22,18 +20,14 @@ export const useCart = () => useContext(CartContext);
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
+  function updateTheItemsNum(cart) {
+    state.numberItems = cart.reduce((acc, cur) => cur?.quantity + acc, 0);
+  }
+
   function addToCart(product) {
     console.log("Product", product);
 
-    if (state.cartItems.length === 0) {
-      console.log("ADD");
-      product = { ...product, quantity: 1 };
-      dispatch({ type: "ADD_TO_CART", payload: [product] });
-      console.log("cart", state.cartItems);
-      return;
-    }
-
-    let foundProduct = state.cartItems.findIndex(
+    let foundProduct = state.cartItems?.findIndex(
       (item) => item.id === product.id,
     );
 
@@ -44,18 +38,21 @@ export function CartProvider({ children }) {
       product.quantity = 1;
       state.cartItems.push(product);
     }
+    updateTheItemsNum(state.cartItems);
     dispatch({ type: "ADD_TO_CART", payload: state.cartItems });
     console.log("cart", state.cartItems);
   }
+
   function removeFromCart(product) {
     let filtedCart = state.cartItems.filter((item) => item.id !== product.id);
+    updateTheItemsNum(filtedCart);
     dispatch({ type: "REMOVE_FROM_CART", payload: filtedCart });
   }
 
   return (
     <CartContext.Provider
       value={{
-        numberItems: state.cartItems.length,
+        numberItems: state.numberItems,
         cartItems: state.cartItems,
         removeFromCart,
         addToCart,
