@@ -1,7 +1,9 @@
 import { useCart } from "../context/CartContext"
+import CartInput from "./CartInput"
 
 export default function MiniProduct({ product }) {
   const {removeFromCart} = useCart()
+  console.log("itemQnt",product.quantity)
 
   return (
     <div className="text-black h-auto items-center flex justify-between rounded bg-stone-100 mb-3 shadow-md p-2 hover:-translate-y-1 hover:scale-105 transition ease-in-out delay-150 w-full">
@@ -14,7 +16,8 @@ export default function MiniProduct({ product }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg>
         </button>
-        <input value={product.quantity} className="w-16"/>
+        <CartInput product={product}/>
+        {/* <CartInput itemQnt={`${product.quantity} && '0'`} productId={product.id} /> */}
       </div>
     </div>
   )

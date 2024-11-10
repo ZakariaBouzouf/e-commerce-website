@@ -7,7 +7,7 @@ import { useContext, useState } from "react";
 import { SideDrawerShow } from "../pages/Root";
 
 export default function Navbar({ isAuthenticated }) {
-  const { numberItems } = useCart()
+  const {  cartQuantity } = useCart()
   const {show,setShow }= useContext(SideDrawerShow)
 
   function dropdownToggle(){
@@ -22,7 +22,7 @@ export default function Navbar({ isAuthenticated }) {
       <SearchBar />
       <div className="grid grid-cols-3 space-x-1 mr-2 ">
         <Icons type="cart" onClick={dropdownToggle} >
-          <span>Cart (<span className="text-[17px]">{`${numberItems}`}</span>)</span>
+          <span>Cart (<span className="text-[17px]">{`${cartQuantity}`}</span>)</span>
         </Icons>
         <Icons type="heart" >
           <span>Favorites</span>
